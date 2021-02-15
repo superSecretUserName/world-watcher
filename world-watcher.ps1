@@ -16,6 +16,7 @@ function createBackupFolderStructure() {
     New-Item -ItemType Directory -Force -Path $backupPath
   }
 
+  # ensure that we have $backupDays number of backup folders
   for ($i = 0; $i -lt $backupDays; $i++) {
     If (!(test-path "./backups/$i-days-ago")) {
       New-Item -ItemType Directory -Force -Path "$backupPath/$i-days-ago"
