@@ -1,4 +1,5 @@
 #! /usr/bin/pwsh
+# built off of https://powershell.one/tricks/filesystem/filesystemwatcher
 [CmdletBinding()]
 param(
   [Parameter(Position=0, mandatory)]
