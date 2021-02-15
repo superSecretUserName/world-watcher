@@ -48,11 +48,14 @@ function clearOldBackups() {
   Write-Host ($files | Format-List | Out-String)
 
   foreach ($filename in $files) {
-    parseTimestampFromFilename($filename)
+    bucketByDay($filename)
   }
 }
 
-function parseTimestampFromFileName([string] $lastWrite, [int] $daysOld)  {
+##
+ # TODO: build this out to bucket 1 save file per day older than 24 hours
+ ##
+function bucketByDay([string] $lastWrite, [int] $daysOld)  {
   $timespan = new-timespan -days $daysOld
     if ($lastWrite -gt $timespan) {
     
